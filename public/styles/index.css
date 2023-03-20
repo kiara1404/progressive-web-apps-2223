@@ -1,0 +1,263 @@
+* {
+    background-color: rgb(91, 187, 131);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+/* header  */
+header {
+    height: 5vh;
+    text-align: center;
+    padding: 10px;
+
+}
+
+header a {
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 2em;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+header a span {
+    font-weight: 600;
+    background-color: #fff;
+    color: rgb(91, 187, 131);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+/* einde header */
+
+
+/* main */
+.start{
+    display: none;
+}
+
+.image , .btn-primary {
+    width: 100vw;
+    height: 250px;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+    padding: 0 0 -10px;
+}
+
+main section:first-child > img{
+    object-fit: scale-down;
+    width: 100vw;
+}
+
+.wrapper {
+    position: relative;
+    text-align: center;
+    height: 90vh;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.btn-primary{
+    width: 100vw;
+    min-width: 200px;
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-evenly;
+}
+
+.btn-primary i{
+    background-color: #fff;
+    color: rgb(91, 187, 131);
+    padding: 50px;
+    font-size: 4em; 
+    border-radius: 20px;
+    box-shadow: 4px 2px 9px 0px  rgb(68, 145, 100);
+}
+
+
+.products article {
+    color: #fff;
+    opacity: 0.8;
+    width: 80vw;
+    margin: 30px auto 0;
+}
+
+.products header {
+    margin-top: 70px;
+    width: 100vw;   
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.products header h2 {
+    width: 250px;
+    height: 30px;
+    font-size: 1.5em;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+
+}
+
+svg{
+    width: 50px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.product-info h1 {
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    width: 80vw;
+    display: block;
+    font-size: 1.5em;
+    margin: 30px auto 0;
+    text-align: center;
+}
+.scanner {
+    margin: 30px auto 0;
+    height: 60vh;
+    width: 70vw;
+    overflow: hidden;
+    
+
+}
+
+.product-info ul {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #fff;
+    height: 20vh
+
+}
+
+ul  h3 {
+    font-size: 1.2em;
+}
+
+ul li {
+    text-align: left;
+    margin-top: 10px;
+     margin-left: 100px;
+     list-style-type: none;
+}
+ul li span {
+    font-weight: 800;
+    color: #fff;
+    visibility: visible;
+    margin-right: 30px;
+}
+
+.product-info {
+    display: block;
+    height: 40vh;
+    width: 100vw;
+
+    margin-top: 10px;   
+}
+.product-info div{
+    height: 80vw;
+    width: 100vw;
+    overflow: hidden;
+}
+.product-info img {
+    object-fit: fill;
+    object-position: center -100px;
+    width: 100vw;
+    display: block;
+    margin: 30px auto;
+
+}
+
+.btn-markup a:first-child {
+padding: 20px;
+width: 90vw;
+background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: none;
+color: rgb(91, 187, 131);
+font-size: 1.2em;
+font-weight: 100;
+display: block;
+letter-spacing: 1px;
+margin: 10px auto;
+}
+
+.btn-markup .scan-product  {
+padding: 20px;
+width: 90vw;
+background-color: rgb(91, 187, 131);
+border-radius: 20px;
+border: 2px solid #ffffff;
+color: #ffffff;
+font-size: 1.2em;
+font-weight: 100;
+letter-spacing: 1px;
+margin-top: 10px;
+display: block;
+margin: 0 auto;
+}
+
+.product-info h3 {
+    margin: 20px;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.product-info p{
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.btn-markup{
+    display: block;
+    position: relative;
+    margin-top: 15em;
+    text-align: center;
+}
+/* ===========================================
+                    LOADER 
+    =========================================== */ 
+
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
+.loading::after {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 15px solid rgba(255, 255, 255, 0.75);
+    border-top-color: rgb(255, 65, 81); 
+    box-shadow: 2px 2px 15px 0px  rgb(90, 172, 124);
+    animation: load 1s ease infinite  ;
+}
+
+@keyframes load {
+    to {
+        transform: rotate(1turn);
+
+    }
+}
+
+/* einde main */
+
+@media only screen and (max-width: 600px){
+    .scanner{
+        width: 100vw;
+        height: 50vh;
+    }
+}
