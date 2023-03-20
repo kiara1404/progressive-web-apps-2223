@@ -1,0 +1,21 @@
+<%- include('includes/head.ejs') %>
+
+<%- include('includes/header.ejs') %>
+<section class="product-info">
+
+    <h1>
+        <%= data.product.brands %>
+    </h1>
+    <div>
+        <img src="<%= data.product['image_front_url'] %>">
+    </div>
+    <ul>
+        <h3>Voedingswaarde per 100 gram </h3>
+
+        <li><span>kcal</span><%= data.product['nutriments']['energy-kcal'] %></li>
+        <li><span>koolhydraten</span><%= data.product['nutriments']['carbohydrates'] %></li>
+        <li><span>Proteine</span><%= data.product['nutriments']['proteins'] %></li>
+        <li><span>Vet</span><%= data.product['nutriments']['fat'] %></li>
+    </ul>
+</section>
+<%- include('includes/buttons-product.ejs') %>

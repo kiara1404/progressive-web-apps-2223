@@ -1,59 +1,59 @@
-import express from 'express';
-import ejs from 'ejs';
-import * as path from 'path';
-import fetch from 'node-fetch';
-
+import express from "express";
+import ejs from "ejs";
+import * as path from "path";
+import fetch from "node-fetch";
 
 const app = express();
 const port = 8000;
 
-
 // set templating engine
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 //where the templates are stored
-app.set('views', 'views');
+app.set("views", "views");
 
 // public folder location
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 // Routing
-app.get('/', index)
-app.get('/scanner', scanner)
-app.get('/scanner/:id', fetchData)
+app.get("/", getIndex);
+app.get("/scanner", getScanner);
+app.get("/zoeken", getSearch);
+app.get("/scanner/:id", fetchData);
 
+const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
 
 function server() {
-    console.log('The server is running succesfully! 🎉 at https://http://localhost:8000/');
+  console.log(
+    "The server is running succesfully! 🎉 at https://http://localhost:8000/"
+  );
 }
 
-function index(req, res) {
-    res.render('index')
+function getIndex(req, res) {
+  res.render("index");
 }
 
-function scanner(req, res) {
-    res.render('scanner')
+function getSearch(req, res) {
+  res.render("search");
+}
+
+function getScanner(req, res) {
+  res.render("scanner");
 }
 
 // fetch data
 async function fetchData(req, res) {
+  try {
 
-    try {
-        const url = 'https://world.openfoodfacts.org/api/v0/product/'
-        const barcode = req.params.id
-        const data = await fetch(url + barcode + 'json')
-        const response = await data.json()
+    const barcode = req.params.id;
+    const response = await fetch(API_URL + barcode + "json");
+    const data = await response.json();
 
-        res.render('detail', {
-            data: response
-        })
-    }
-    catch (err) {
-        console.log(err)
-
-    }
-
-
+    res.render("detail", {
+      data: data,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-
-app.listen(port, server)
+app.listen(port, server);
