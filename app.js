@@ -3,6 +3,7 @@ import ejs from "ejs";
 import * as path from "path";
 import fetch from "node-fetch";
 
+
 const app = express();
 const port = 8000;
 
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", getIndex);
 app.get("/scanner", getScanner);
 app.get("/zoeken", getSearch);
-app.get("/scanner/:id", fetchData);
+app.get("/products/:id", getDetailPage);
 
 const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
 
@@ -41,9 +42,8 @@ function getScanner(req, res) {
 }
 
 // fetch data
-async function fetchData(req, res) {
+async function getDetailPage(req, res) {
   try {
-
     const barcode = req.params.id;
     const response = await fetch(API_URL + barcode + "json");
     const data = await response.json();

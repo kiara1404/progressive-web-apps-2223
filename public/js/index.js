@@ -37,3 +37,5 @@ if (window.location.pathname === "/scanner") {
   startVideoEl();
   barcodeDetector();
 }
+
+

@@ -57,7 +57,7 @@ main section:first-child > img {
   position: relative;
   text-align: center;
   height: 90vh;
-  margin-top: 20px;
+  margin-top: 40px;
   overflow: hidden;
 }
 
@@ -152,7 +152,7 @@ ul li span {
 
 .product-info {
   display: block;
-  height: 40vh;
+  /* height: 100vh; */
   max-width: 700px;
   margin: 0 auto;
 
@@ -238,9 +238,38 @@ ul li span {
   animation: load 1s ease infinite;
 }
 
-.wrapper {
-  max-width: 700px;
-  margin: 0 auto;
+.searchBox {
+  width: 90%;
+  margin: 1rem auto 0;
+  display: flex;
+}
+.wrapper h1 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 90%;
+    text-align: start;
+    margin: 6rem auto 0
+}
+.searchBox input[type="text"] {
+  width: 75%;
+  height: 3rem;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  padding: 1rem;
+}
+.searchBox input[type="submit"] {
+  width: 25%;
+  height: 3rem;
+  background-color: rgb(26, 109, 85);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #fff;
+  border: none
 }
 
 @keyframes load {
@@ -255,12 +284,12 @@ video {
 .hide {
   display: none;
 }
+
 /* einde main */
 
 @media only screen and (max-width: 700px) {
   video {
     width: 100vw;
-
   }
   .scanner {
     width: 100vw;
@@ -271,7 +300,6 @@ video {
 @media only screen and (min-width: 701px) {
   video {
     width: 100vw;
-
   }
   .scanner {
     width: 100vw;
