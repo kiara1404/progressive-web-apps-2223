@@ -5,6 +5,9 @@ import fetch from "node-fetch";
 
 const app = express();
 const port = 8000;
+let saved = [];
+let savedProductsArray = [];
+const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
 
 // set templating engine
 app.set("view engine", "ejs");
@@ -17,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routing
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { data: savedProductsArray });
 });
 
 app.get("/scanner", (req, res) => {
@@ -30,7 +33,21 @@ app.get("/zoeken", (req, res) => {
 
 app.post("/bewaren", (req, res) => {
   const productId = req.body.product_id;
-  console.log(req.body.product_id);
+
+  saved.push({ product_id: productId });
+
+  saved.forEach(async item => {
+    const response = await fetch(API_URL + item.product_id + "json");
+    const data = await response.json();
+    const productInfo = {
+      id: req.body.product_id,
+      name: data.product.brands,
+      image: data.product.image_front_url,
+    };
+
+    savedProductsArray.push(productInfo);
+  });
+
   res.redirect(`/products/${productId}`);
 });
 
@@ -58,7 +75,6 @@ app.get("/zoek", async (req, res) => {
 });
 
 app.get("/products/:id", async (req, res) => {
-  const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
   try {
     const barcode = req.params.id;
     const response = await fetch(API_URL + barcode + "json");

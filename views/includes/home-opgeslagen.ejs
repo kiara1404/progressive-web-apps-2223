@@ -1,5 +1,5 @@
 <section class="products">
-    <div>
+    <div id="title">
         <svg>
             <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
         </svg>
@@ -8,10 +8,25 @@
             <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
         </svg>
     </div>
-
+ <% if (data.length < 1) { %>
     <article>
         <p> Je hebt nog geen producten opgeslagen...</p>
         <p>Scan snel een product om deze te kunnen opslaan!</p>
     </article>
+    <% } else { %>
+        <ul class="results-list">
+            <% data.forEach(item => { %>
+                <li>
+                    <a href="/products/<%= item.id  %>">
+                        <%= item.name %>
+                        <div id="img-wrapper">
+                        <img src="<%= item.image %>" alt="image of <%= item.name %>.">
+                        </div>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+
+<% } %>
 </section>
 </section>
