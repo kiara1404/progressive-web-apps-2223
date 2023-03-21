@@ -99,6 +99,7 @@ app.get("/products/:id", async (req, res) => {
     const data = await response.json();
     res.render("detail", {
       data: data,
+      savedProductsArray: savedProductsArray,
     });
   } catch (err) {
     console.log(err);
