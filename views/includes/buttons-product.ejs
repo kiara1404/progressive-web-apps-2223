@@ -1,4 +1,6 @@
 <section class="btn-markup">
-    <a class="bewaren"> Bewaren </a>
+<form method="post" action="/bewaren">
+    <button type="submit" name="product_id" value="<%= data.product._id %>" class="bewaren" > Bewaren </button>
+</form>
     <a class="scan-product" href="/scanner"> Scan ander product</a>
 </section>`

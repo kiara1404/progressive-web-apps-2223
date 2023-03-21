@@ -9,9 +9,12 @@
 
 /* header  */
 header {
-  height: 5vh;
+  width: 100vw;
+  height: 6.8vh;
   text-align: center;
   padding: 10px;
+  position: fixed;
+  z-index: 9999;
 }
 
 header a {
@@ -47,6 +50,9 @@ header a span {
   margin: 10px 0 0 0;
   padding: 0 0 -10px;
 }
+main {
+  overflow: scroll;
+}
 
 main section:first-child > img {
   object-fit: scale-down;
@@ -56,9 +62,9 @@ main section:first-child > img {
 .wrapper {
   position: relative;
   text-align: center;
-  height: 90vh;
-  margin-top: 40px;
-  overflow: hidden;
+  /* margin-top: 40px; */
+  overflow: scroll;
+  padding-top: 5rem;
 }
 
 .btn-primary {
@@ -85,7 +91,7 @@ main section:first-child > img {
   margin: 30px auto 0;
 }
 
-.products header {
+.products div {
   margin-top: 70px;
   /* width: 100vw; */
   display: flex;
@@ -93,7 +99,7 @@ main section:first-child > img {
   text-align: center;
 }
 
-.products header h2 {
+.products div h2 {
   width: 250px;
   height: 30px;
   font-size: 1.5em;
@@ -113,17 +119,35 @@ svg {
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 1px;
-  width: 80vw;
+  width: 90vw;
   display: block;
   font-size: 1.5em;
-  margin: 30px auto 0;
-  text-align: center;
+  margin: 0 auto 0;
+  text-align: start;
 }
 .scanner {
-  margin: 30px auto 0;
+  margin: 0 auto 0;
   height: 60vh;
   width: 70vw;
   overflow: hidden;
+}
+
+.scanner-help {
+  width: 80vw;
+  margin: 2rem auto 0;
+  display: flex;
+}
+
+.scanner-help li {
+  margin: 0;
+  color: #fff;
+  padding: 0 0.3rem;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.scanner-help li:first-child {
+  padding-top: 3px;
 }
 
 .product-info ul {
@@ -152,11 +176,9 @@ ul li span {
 
 .product-info {
   display: block;
-  /* height: 100vh; */
   max-width: 700px;
   margin: 0 auto;
-
-  margin-top: 10px;
+  padding-top: 90px;
 }
 .product-info div {
   height: 80vw;
@@ -203,7 +225,7 @@ ul li span {
 
 .product-info h3 {
   margin: 20px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #fff;
 }
 
@@ -215,8 +237,63 @@ ul li span {
 .btn-markup {
   display: block;
   position: relative;
-  margin-top: 15em;
+  margin-top: 2em;
   text-align: center;
+}
+
+.search-wrapper {
+  width: 100vw;
+  position: fixed;
+  text-align: center;
+  overflow: scroll;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+.results-section h1 {
+  font-weight: 400;
+  color: #fff;
+  font-size: 1em;
+  font-style: italic;
+}
+.results-section {
+  padding-top: 200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.results-section .heading {
+  position: fixed;
+  width: 100%;
+  padding: 0rem 2rem 1rem 2rem;
+  background-color: rgb(91, 187, 131);
+}
+
+.results-list li a {
+  display: flex;
+  width: 100%;
+  margin-left: 0;
+  justify-content: start;
+  flex-direction: row-reverse;
+  text-decoration: none;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.results-list li {
+  margin: 3rem 0;
+}
+.results-list li div {
+  width: 6rem;
+  overflow: hidden;
+  height: 8rem;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
+
+.results-list li div img {
+  width: 6rem;
+  /* object-fit: contain; */
 }
 /* ===========================================
                     LOADER 
@@ -243,7 +320,7 @@ ul li span {
   margin: 1rem auto 0;
   display: flex;
 }
-.wrapper h1 {
+.search-wrapper h1 {
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -251,7 +328,8 @@ ul li span {
   letter-spacing: 0.5px;
   width: 90%;
   text-align: start;
-  margin: 6rem auto 0;
+  margin: 1rem auto 0;
+  /* padding-bottom: 2rem; */
 }
 
 .searchForm {
