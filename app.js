@@ -37,6 +37,8 @@ app.post("/bewaren", (req, res) => {
   saved.push({ product_id: productId });
 
   saved.forEach(async item => {
+    console.log("item", item);
+
     const response = await fetch(API_URL + item.product_id + "json");
     const data = await response.json();
     const productInfo = {
@@ -44,8 +46,24 @@ app.post("/bewaren", (req, res) => {
       name: data.product.brands,
       image: data.product.image_front_url,
     };
+    console.log(savedProductsArray);
 
-    savedProductsArray.push(productInfo);
+    if (savedProductsArray.length <= 0) {
+      savedProductsArray.push(productInfo);
+      console.log(savedProductsArray);
+    } else {
+      savedProductsArray.map(item => {
+        console.log(item.id);
+        if (item.id !== productId) {
+          console.log("truuuu");
+          savedProductsArray.push(productInfo);
+        } else {
+          console.log("false");
+
+          return;
+        }
+      });
+    }
   });
 
   res.redirect(`/products/${productId}`);
