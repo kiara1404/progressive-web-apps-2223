@@ -1,0 +1,21 @@
+<%- include('head.ejs') %>
+
+<%- include('header.ejs') %>
+<section class="wrapper">
+  <% if (!data) { %>
+    <p>No data</p>
+<% } else { %>
+    <ul class="movie-list" data-search-data>
+        <% data.forEach(item => { %>
+            <li>
+                <a href="/products/<%= item.id  %>">
+                    <%= item.name %>
+                    <img src="<%= item.image %>" alt="Movie poster of <%= item.name %>.">
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+<% } %>
+
+  
+</section>

@@ -3,7 +3,6 @@ import ejs from "ejs";
 import * as path from "path";
 import fetch from "node-fetch";
 
-
 const app = express();
 const port = 8000;
 
@@ -19,6 +18,29 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", getIndex);
 app.get("/scanner", getScanner);
 app.get("/zoeken", getSearch);
+app.get("/zoek", async (req, res) => {
+  console.log(req.query);
+  const response = await fetch(
+    `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.query}&search_simple=1&action=process&json=1`
+  );
+  const data = await response.json();
+  console.log(typeof data);
+  const cleanProductsArray = data.products.map(item => {
+    try {
+      console.log(item._id);
+      return {
+        id: item._id,
+        name: item.brands,
+        image: item.image_front_url,
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  console.log("res", cleanProductsArray);
+  res.render("includes/result-list", { data: cleanProductsArray.slice(0, 5) });
+});
+
 app.get("/products/:id", getDetailPage);
 
 const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
@@ -47,7 +69,7 @@ async function getDetailPage(req, res) {
     const barcode = req.params.id;
     const response = await fetch(API_URL + barcode + "json");
     const data = await response.json();
-
+    console.log(data.product);
     res.render("detail", {
       data: data,
     });

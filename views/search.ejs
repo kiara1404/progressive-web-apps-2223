@@ -3,10 +3,12 @@
 <%- include('includes/header.ejs') %>
 <section class="wrapper">
     <h1> Zoek naar een product </h1>
-    <div class="searchBox">
-        <input type="text" placeholder="Zoek op merknaam" />
+  
+    <form action="/zoek" method="GET"  class="searchForm">
+        <input type="text" id="searchInput" name="query" placeholder="Zoek op merknaam of soort" />
         <input type="submit" value="Zoek" />
-    </div>
+    </form>
+
 
   
 </section>

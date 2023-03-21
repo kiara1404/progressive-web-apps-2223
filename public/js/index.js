@@ -38,4 +38,12 @@ if (window.location.pathname === "/scanner") {
   barcodeDetector();
 }
 
-
+const search = document.querySelector(`input[type="text"]`);
+const searchButton = document.querySelector(`input[type="submit"]`);
+search.addEventListener("input", e => {
+  e.preventDefault();
+  console.log("test", search.value);
+});
+searchButton.addEventListener("submit", () => {
+    console.log("submit")
+});
