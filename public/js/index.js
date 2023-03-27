@@ -27,7 +27,7 @@ export async function barcodeDetector() {
       return;
     } else {
       console.log("geslaagd");
-      window.location.href = "scanner/" + barcodes[0].rawValue;
+      window.location.href = "products/" + barcodes[0].rawValue;
     }
   }, 2000);
 }
@@ -45,5 +45,5 @@ search.addEventListener("input", e => {
   console.log("test", search.value);
 });
 searchButton.addEventListener("submit", () => {
-    console.log("submit")
+  console.log("submit");
 });

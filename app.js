@@ -4,7 +4,7 @@ import * as path from "path";
 import fetch from "node-fetch";
 
 const app = express();
-const port = 8000;
+const port = 8880;
 let saved = [];
 let savedProductsArray = [];
 const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
@@ -29,6 +29,12 @@ app.get("/scanner", (req, res) => {
 
 app.get("/zoeken", (req, res) => {
   res.render("search");
+});
+
+app.get("/zoek-barcode", (req, res) => {
+  const barcode = req.query.barcode;
+  console.log("barcode", barcode);
+  res.redirect(`/products/${barcode}`);
 });
 
 app.post("/bewaren", (req, res) => {
@@ -108,6 +114,6 @@ app.get("/products/:id", async (req, res) => {
 
 app.listen(port, () => {
   console.log(
-    "The server is running succesfully! 🎉 at https://http://localhost:8000/"
+    "The server is running succesfully! 🎉 at https://http://localhost:8880/"
   );
 });
