@@ -1,10 +1,10 @@
 import express from "express";
-import ejs from "ejs";
-import * as path from "path";
 import fetch from "node-fetch";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
-const port = 8880;
+const port = process.env.PORT ;
 let saved = [];
 let savedProductsArray = [];
 const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 // public folder location
-app.use(express.static("public"));
+app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 
 // Routing
@@ -43,8 +43,6 @@ app.post("/bewaren", (req, res) => {
   saved.push({ product_id: productId });
 
   saved.forEach(async item => {
-    console.log("item", item);
-
     const response = await fetch(API_URL + item.product_id + "json");
     const data = await response.json();
     const productInfo = {
