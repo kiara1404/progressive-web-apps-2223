@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT ;
+const port = process.env.PORT;
 let saved = [];
 let savedProductsArray = [];
 const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
@@ -13,6 +13,12 @@ const API_URL = "https://world.openfoodfacts.org/api/v0/product/";
 app.set("view engine", "ejs");
 //where the templates are stored
 app.set("views", "views");
+
+// save in cache
+app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
+  res.setHeader("Cache-Control", "max-age=31536000, immutable");
+  next();
+});
 
 // public folder location
 app.use(express.static("static"));
@@ -30,7 +36,9 @@ app.get("/scanner", (req, res) => {
 app.get("/zoeken", (req, res) => {
   res.render("search");
 });
-
+app.get("/offline", (req, res) => {
+  res.render("offline");
+});
 app.get("/zoek-barcode", (req, res) => {
   const barcode = req.query.barcode;
   console.log("barcode", barcode);

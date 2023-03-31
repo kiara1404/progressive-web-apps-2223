@@ -4,7 +4,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "description": "Food Checker is an application where the user can look up the nutritional values of food and beverages",
-  "scope": "/",
+  "id": "/",
   "start_url": "/",
   "name": "Food Checker",
   "short_name": "FC",
