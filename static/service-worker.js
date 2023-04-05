@@ -23,7 +23,8 @@ self.addEventListener("activate", _event => {});
 
 // Fetch  service worker.
 self.addEventListener("fetch", event => {
-  const url = new URL(event.request.url);
+    const url = new URL(event.request.url);
+
 
   // Check if any of the requested files already exists
   if (event.request.method === "GET" && files.includes(url.pathname)) {
@@ -34,6 +35,7 @@ self.addEventListener("fetch", event => {
     // Only request the HTML, all the other files are already in the cache.
   } else if (
     event.request.method === "GET" &&
+    event.request.headers.get("accept") !== null &&
     event.request.headers.get("accept").includes("text/html")
   ) {
     event.respondWith(
