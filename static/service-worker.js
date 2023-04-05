@@ -6,7 +6,6 @@ const files = [
   "/styles/index.css",
   "/",
   "/img/food.jpg",
-
 ];
 
 // Install the service worker.
@@ -35,7 +34,6 @@ self.addEventListener("fetch", event => {
     // Only request the HTML, all the other files are already in the cache.
   } else if (
     event.request.method === "GET" &&
-    event.request.headers.get("accept") !== null &&
     event.request.headers.get("accept").includes("text/html")
   ) {
     event.respondWith(

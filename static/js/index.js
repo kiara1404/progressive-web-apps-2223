@@ -38,6 +38,7 @@ if (window.location.pathname === "/scanner") {
   barcodeDetector();
 }
 
+
 // If supported, install service worker.
 if ("serviceWorker" in navigator) {
   console.log("service worker supported!");

@@ -14,12 +14,6 @@ app.set("view engine", "ejs");
 //where the templates are stored
 app.set("views", "views");
 
-// save in cache
-app.use(/.*-[0-9a-f]{10}\..*/, (req, res, next) => {
-  res.setHeader("Cache-Control", "max-age=31536000, immutable");
-  next();
-});
-
 // public folder location
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
