@@ -1,4 +1,4 @@
-## Demo
+## Live demo
 
 To see this project live, click [here](https://pwa-23.onrender.com/)
 
@@ -8,9 +8,11 @@ To see this project live, click [here](https://pwa-23.onrender.com/)
 
 This project is a single page application in vanilla JavaScript that allows you to scan products and get their nutritional values and scores.
 
-## Live Demo
+## User story
+As a person who follows a strict diet, I want to be able to quickly find products and see their nutritional value and maybe save them for groceries, so I can make more informed decisions within my diet and/or grocery shopping.
 
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+The app should at least render the index page when the app is offline because the list is saved there.
+
 
 ## Installation ⚙️
 
@@ -33,6 +35,17 @@ npm start
 ```
 
 <!-- ...but how does one use this project? What are its features 🤔 -->
+
+## Features
+* Scan or fill in a barcode and find a product
+* Search a product via text query
+* Overview of a product with photo and nutritional value
+* Save item ( not working 100% due to Service Worker...)
+
+## Optimization
+* Converted food.jpg into food.webp
+* Not using a custom font anymore
+* 
 
 ## API
 
