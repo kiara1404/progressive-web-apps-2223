@@ -1,6 +1,13 @@
 const PRE_CACHE = "pre cache";
 //pre cache all the files that you definitly want to have
-const files = ["/offline", "/js/index.js", "/styles/index.css"];
+const files = [
+  "/offline",
+  "/js/index.js",
+  "/styles/index.css",
+  "/",
+  "/img/food.jpg",
+
+];
 
 // Install the service worker.
 self.addEventListener("install", event => {
@@ -31,7 +38,6 @@ self.addEventListener("fetch", event => {
     event.request.headers.get("accept") !== null &&
     event.request.headers.get("accept").includes("text/html")
   ) {
-    console.log("else if", event);
     event.respondWith(
       caches.open("dynamic-cache").then(cache => {
         console.log("cache open");
@@ -42,18 +48,17 @@ self.addEventListener("fetch", event => {
             // Retrieve, cache and serve the HTML.
             .then(res => {
               const fetchFromServer = fetch(event.request).then(serverRes => {
-                console.log("serverRes", serverRes);
                 cache.put(event.request, serverRes.clone());
                 return serverRes;
               });
               return res || fetchFromServer;
             })
-          // Serve the offline page if not in cache and no internet.
-          .catch(_e => {
-            return caches
-              .open(PRE_CACHE)
-              .then(cache => cache.match("/offline"));
-          })
+            // Serve the offline page if not in cache and no internet.
+            .catch(_e => {
+              return caches
+                .open(PRE_CACHE)
+                .then(cache => cache.match("/offline"));
+            })
         );
       })
     );
