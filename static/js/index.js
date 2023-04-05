@@ -54,12 +54,12 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+
 let deferredPrompt;
 let addBtn;
+
 if (document.querySelector(".add-button")) {
   addBtn = document.querySelector(".add-button");
-
-  // addBtn.style.display = "none";
 
   window.addEventListener("beforeinstallprompt", e => {
     // Prevent Chrome 67 and earlier from automatically showing the prompt

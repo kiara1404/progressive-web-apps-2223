@@ -392,6 +392,17 @@ LOADER
   flex-direction: row-reverse;
 }
 
+.add-button {
+  position: absolute;
+  bottom: 0;
+  z-index: 999999;
+  width: 100vw;
+  height: 10vh;
+  background-color: #fff;
+  opacity: 0.6;
+  border: none;
+}
+
 #img-wrapper {
   height: 5rem;
 }
