@@ -5,12 +5,18 @@ const files = [
   "/js/index.js",
   "/styles/index.css",
   "/",
-  "/img/food.jpg",
+
 ];
+
+console.log("helloooo");
 
 // Install the service worker.
 self.addEventListener("install", event => {
+  console.log("installation");
+  
   event.waitUntil(
+    console.log("files", files),
+    
     caches.open(PRE_CACHE).then(cache => {
       self.skipWaiting();
       return cache.addAll(files);
@@ -19,12 +25,13 @@ self.addEventListener("install", event => {
 });
 
 // Activate service worker.
-self.addEventListener("activate", _event => {});
+self.addEventListener("activate", _event => {console.log("activation")});
 
 // Fetch  service worker.
 self.addEventListener("fetch", event => {
-    const url = new URL(event.request.url);
-
+  console.log("fetch");
+  
+  const url = new URL(event.request.url);
 
   // Check if any of the requested files already exists
   if (event.request.method === "GET" && files.includes(url.pathname)) {
@@ -35,7 +42,6 @@ self.addEventListener("fetch", event => {
     // Only request the HTML, all the other files are already in the cache.
   } else if (
     event.request.method === "GET" &&
-    event.request.headers.get("accept") !== null &&
     event.request.headers.get("accept").includes("text/html")
   ) {
     event.respondWith(

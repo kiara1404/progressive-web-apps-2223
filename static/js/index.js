@@ -38,7 +38,6 @@ if (window.location.pathname === "/scanner") {
   barcodeDetector();
 }
 
-
 // If supported, install service worker.
 if ("serviceWorker" in navigator) {
   console.log("service worker supported!");
@@ -46,6 +45,8 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register("service-worker.js")
       .then(registration => {
+        console.log("registration", registration);
+
         return registration.update();
       })
       .catch(error => {
@@ -53,7 +54,6 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
-
 
 let deferredPrompt;
 let addBtn;
