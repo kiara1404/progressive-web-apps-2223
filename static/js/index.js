@@ -22,17 +22,14 @@ export async function barcodeDetector() {
   window.setInterval(async () => {
     const barcodes = await barcodeDetector.detect(videoEl);
 
-    // stukje code van joeri geplakt, nog even vragen hoe dit zit
     if (barcodes.length <= 0) {
       return;
     } else {
-      console.log("geslaagd");
       window.location.href = "products/" + barcodes[0].rawValue;
     }
   }, 2000);
 }
 
-// van joeri
 if (window.location.pathname === "/scanner") {
   startVideoEl();
   barcodeDetector();

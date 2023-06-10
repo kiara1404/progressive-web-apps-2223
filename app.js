@@ -35,13 +35,11 @@ app.get("/offline", (req, res) => {
 });
 app.get("/zoek-barcode", (req, res) => {
   const barcode = req.query.barcode;
-  console.log("barcode", barcode);
   res.redirect(`/products/${barcode}`);
 });
 
 app.post("/bewaren", (req, res) => {
   const productId = req.body.product_id;
-
   saved.push({ product_id: productId });
 
   saved.forEach(async item => {
@@ -52,20 +50,14 @@ app.post("/bewaren", (req, res) => {
       name: data.product.brands,
       image: data.product.image_front_url,
     };
-    console.log(savedProductsArray);
 
     if (savedProductsArray.length <= 0) {
       savedProductsArray.push(productInfo);
-      console.log(savedProductsArray);
     } else {
       savedProductsArray.map(item => {
-        console.log(item.id);
         if (item.id !== productId) {
-          console.log("truuuu");
           savedProductsArray.push(productInfo);
         } else {
-          console.log("false");
-
           return;
         }
       });
@@ -100,13 +92,17 @@ app.get("/zoek", async (req, res) => {
 
 app.get("/products/:id", async (req, res) => {
   try {
-    const barcode = req.params.id;
-    const response = await fetch(API_URL + barcode + "json");
-    const data = await response.json();
-    res.render("detail", {
-      data: data,
-      savedProductsArray: savedProductsArray,
-    });
+    if (req.params.id === "manifest.json") {
+      return;
+    } else {
+      const barcode = req.params.id;
+      const response = await fetch(API_URL + barcode + "json");
+      const data = await response.json();
+      res.render("detail", {
+        data: data,
+        savedProductsArray: savedProductsArray,
+      });
+    }
   } catch (err) {
     console.log(err);
   }
