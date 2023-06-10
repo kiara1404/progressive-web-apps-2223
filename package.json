@@ -5,9 +5,10 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "minify-js": "minify ./static/js/index.js > ./static/js/index.min.js ",
+    "minify-css": "minify ./static/styles/index.css > ./static/styles/index.min.css"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "dotenv": "^16.0.3",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "minify": "^10.2.0",
     "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15",
     "path": "^0.12.7"
