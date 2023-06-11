@@ -45,7 +45,7 @@ npm start
 - [x] Search a product via text query
 - [x] Overview of a product with photo and nutritional value
 - [x] Save item into list
-- [] Save list in localStorage 
+- [ ] Save list in localStorage 
 
 ## Optimization
 
@@ -61,6 +61,8 @@ I also decided to cache pages when the user has visited the page, like the home 
 
 <img src="./static/img/lighthouse.png"  width="800px"/>
 After all my enhancements for performance, I did a Lighthouse report and it came back very well. The only issue is the contrast with the colours but I decided not to change them for now. 
+
+
 ## API
 
 #### Barcode Detection API
