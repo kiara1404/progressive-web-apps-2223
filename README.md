@@ -16,6 +16,7 @@ The app should at least render the index page when the app is offline because th
 
 ## Installation ⚙️
 
+
 #### Clone this repository
 
 ```
@@ -40,12 +41,19 @@ npm start
 * Scan or fill in a barcode and find a product
 * Search a product via text query
 * Overview of a product with photo and nutritional value
-* Save item ( not working 100% due to Service Worker...)
+* Save item into list
 
 ## Optimization
-* Converted food.jpg into food.webp
-* Not using a custom font anymore
-* 
+* Converted food.jpg(1,9MB) into food.webp(120kb). This improved the `Perceived loading speed`.
+* NPM Minify to minify my clientside JS and CSS code. This improved the `Load responsiveness`. 
+* Use responsive images with `srcset`
+
+
+## Service Worker
+For this project,  I implemented a service worker. I decided to cache an offline page, the header image, clientside JS and CSS files. Therefore, when the network is down, the user will be able to see interface of the app and will be redirected to the offline page.
+
+I also decided to cache pages when the user has visited the page, like the home screen and previously visited products. This is especially needed when the user has saved a product and can in offline modus still go to this product page.
+
 
 ## API
 

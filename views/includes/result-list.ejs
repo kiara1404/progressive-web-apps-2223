@@ -13,7 +13,11 @@
                 <a href="/products/<%= item.id  %>">
                     <%= item.name %>
                     <div>
-                     <img src="<%= item.image %>" alt="image of <%= item.brands %>.">
+                     <img src="<%= item.image %>" 
+                        srcset="<%= item.image_url %> 800w, 
+                                <%= item.image_small_url %> 400w, 
+                                <%= item.image_thumb_url %> 200w"
+                                 alt="image of <%= item.brands %>." >
                     </div>
                 </a>
             </li>

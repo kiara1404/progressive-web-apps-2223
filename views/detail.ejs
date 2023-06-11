@@ -4,19 +4,22 @@
 <section class="product-info">
 
     <h1>
-        <%= data?.product?.brands %>
+        <%= data.product.brands %>
     </h1>
     <div>
-        <img src="<%= data?.product['image_front_url'] %>" alt="picture of<%= data?.product.brands %>
-
+        <img src="<%= data.product['image_front_url'] %>" 
+        srcset="<%= data.product['image_url'] %> 800w, 
+                <%= data.product['image_small_url'] %> 400w, 
+                <%= data.product['image_thumb_url'] %> 200w"
+        alt="picture of<%= data.product.brands %>" >
     </div>
     <ul>
         <h3>Voedingswaarde per 100 gram </h3>
 
-        <li><span>kcal</span><%= data?.product['nutriments']['energy-kcal'] %></li>
-        <li><span>koolhydraten</span><%= data?.product['nutriments']['carbohydrates'] %></li>
-        <li><span>Proteine</span><%= data?.product['nutriments']['proteins'] %></li>
-        <li><span>Vet</span><%= data?.product['nutriments']['fat'] %></li>
+        <li><span>kcal</span><%= data.product['nutriments']['energy-kcal'] %></li>
+        <li><span>koolhydraten</span><%= data.product['nutriments']['carbohydrates'] %></li>
+        <li><span>Proteine</span><%= data.product['nutriments']['proteins'] %></li>
+        <li><span>Vet</span><%= data.product['nutriments']['fat'] %></li>
     </ul>
 </section>
 <%- include('includes/buttons-product.ejs') %>

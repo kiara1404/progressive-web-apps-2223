@@ -73,12 +73,16 @@ app.get("/zoek", async (req, res) => {
     `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.query}&search_simple=1&action=process&json=1`
   );
   const data = await response.json();
+
   const cleanProductsArray = data.products.map(item => {
     try {
       return {
         id: item._id,
         name: item.brands,
         image: item.image_front_url,
+        image_url: item.image_url,
+        image_small_url: item.image_small_url,
+        image_thumb_url: item.image_thumb_url,
       };
     } catch (e) {
       console.log(e);
