@@ -71,7 +71,7 @@ This project also uses the [World Open Food Facts API](https://world.openfoodfac
 
 ## Activity Chart
 
-<img src="./static/img/activity-chart3.0.pdf" width="800px">
+<img src="./static/img/activity-chart3.0.pdf" width="800px" />
 
 ### License ©
 
