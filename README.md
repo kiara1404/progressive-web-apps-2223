@@ -55,6 +55,8 @@ For this project, I implemented a service worker. I decided to cache an offline 
 
 I also decided to cache pages when the user has visited the page, like the home screen and previously visited products. This is especially needed when the user has saved a product and can in offline modus still go to this product page.
 
+<img src="./static/img/lighthouse.png"  width="800px"/>
+After all my enhancements for performance, I did a Lighthouse report and it came back very well. The only issue is the contrast with the colours but I decided not to change them for now. 
 ## API
 
 #### Barcode Detection API
@@ -69,7 +71,7 @@ This project also uses the [World Open Food Facts API](https://world.openfoodfac
 
 ## Activity Chart
 
-![](https://github.com/kiara1404/food-check/blob/main/img/activity-chartv2.0.png?raw=true)
+![](https://github.com/kiara1404/progressive-web-apps-2223/blob/main/static/img/activity-chart3.0.pdf)
 
 ### License ©
 
