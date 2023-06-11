@@ -1,3 +1,6 @@
+# Food Check
+![](https://github.com/kiara1404/food-check/blob/main/img/ezgif.com-gif-maker.gif?raw=true)
+
 ## Live demo
 
 To see this project live, click [here](https://pwa-23.onrender.com/)
@@ -39,15 +42,16 @@ npm start
 ## Features
 
 - [x] Scan or fill in a barcode and find a product
-- Search a product via text query
-- Overview of a product with photo and nutritional value
-- Save item into list
+- [x] Search a product via text query
+- [x] Overview of a product with photo and nutritional value
+- [x] Save item into list
+- [] Save list in localStorage 
 
 ## Optimization
 
-- Converted food.jpg(1,9MB) into food.webp(120kb). This improved the `Perceived loading speed`.
-- NPM Minify to minify my clientside JS and CSS code. This improved the `Load responsiveness`. ( For now the minify is done manually, in the future I would want this to build automatically.)
-- Use responsive images with `srcset`. Improving `Perceived loading speed` and also `Visual stability` because of the fast loading all of the elements stay in place and nothing interferes with the UI.
+* Converted food.jpg(1,9MB) into food.webp(120kb). This improved the `Perceived loading speed`.
+* NPM Minify to minify my clientside JS and CSS code. This improved the `Load responsiveness`. ( For now the minify is done manually, in the future I would want this to build automatically.)
+* Use responsive images with `srcset`. Improving `Perceived loading speed` and also `Visual stability` because of the fast loading all of the elements stay in place and nothing interferes with the UI.
 
 ## Service Worker
 
