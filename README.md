@@ -38,7 +38,7 @@ npm start
 
 ## Features
 
-- Scan or fill in a barcode and find a product
+- [x] Scan or fill in a barcode and find a product
 - Search a product via text query
 - Overview of a product with photo and nutritional value
 - Save item into list
